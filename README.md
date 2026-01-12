@@ -13,6 +13,10 @@ https://github.com/ctw0727/2D_Robotic_Arm/blob/main/KR_RoboticArmPrecoding.cs)�
 1. 오픈소스 덕에 로봇팔 구현 자체는 어렵지 않았다. 조금 고쳐서 나온 결과물
  [_link](./Resource.README/처음%20로봇팔.mp4)
 
+https://github.com/user-attachments/assets/23728311-8e1a-47cb-ad5a-050c92f57d9a
+
+
+
 2. 로봇팔 이미지를 넣었더니 구겨지더라, 이미지를 가로로 잘 돌려 둔 이미지를 활용하자.
 
 <img src="Resource.README/Image01.png" width="200" height="200"/>
@@ -20,3 +24,6 @@ https://github.com/ctw0727/2D_Robotic_Arm/blob/main/KR_RoboticArmPrecoding.cs)�
 
 3. 기존 ctc 샘플 이미지 위에 올려두기 까지 구현
 [_link](./Resource.README/이미지%20로봇팔.mp4)
+
+https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
+
