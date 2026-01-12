@@ -3,12 +3,11 @@
 
 ### 왜 이 리포지토리를 만들었죠?
 - CTC 만드는 데 사용할 로봇팔 UI 연구를 위해
+- 본 연구가 성공적으로 마무리 된다면 본 내용은 실제 프로젝트에 투입될 예정 
 
 ### 참고 소스
-- 어떻게 시작해야 하나 ppt로 그려 보면서 고민하다, 감사하게도 깃허브에서 로봇팔이 구현된 Unity 코드를 찾을 수 있었다.
-
-- Github Id : [ctw0727](
-https://github.com/ctw0727/2D_Robotic_Arm/blob/main/KR_RoboticArmPrecoding.cs)
+- 어떻게 시작해야 하나 ppt로 그려 보면서 고민하다, 감사하게도 깃허브에서 [로봇팔이 구현된 Unity 코드](
+https://github.com/ctw0727/2D_Robotic_Arm/blob/main/KR_RoboticArmPrecoding.cs)를 찾을 수 있었다.
 
 ## 1차. 로봇팔 구현하기
 1. 오픈소스 덕에 로봇팔 구현 자체는 어렵지 않았다. 조금 고쳐서 나온 결과물
