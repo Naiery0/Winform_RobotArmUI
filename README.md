@@ -10,11 +10,10 @@
 https://github.com/ctw0727/2D_Robotic_Arm/blob/main/KR_RoboticArmPrecoding.cs)를 찾을 수 있었다.
 
 ## 1차. 로봇팔 구현하기
-1. 오픈소스 덕에 로봇팔 구현 자체는 어렵지 않았다. 조금 고쳐서 나온 결과물
+1. 오픈소스 덕에 로봇팔 구현 자체는 어렵지 않았다. 조금 고쳐서 나온 결과물 (알고리즘 이해하려고 기구학도 잠깐 공부했다.)
  [_link](./Resource.README/처음%20로봇팔.mp4)
 
 https://github.com/user-attachments/assets/23728311-8e1a-47cb-ad5a-050c92f57d9a
-
 
 
 2. 로봇팔 이미지를 넣었더니 구겨지더라, 이미지를 가로로 잘 돌려 둔 이미지를 활용하자.

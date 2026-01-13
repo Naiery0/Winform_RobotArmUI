@@ -17,6 +17,7 @@ namespace Winform_RobotArmUI_
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+            //Application.Run(new Modals.Frm_Kinamatics_MousePoint());
         }
     }
 }
