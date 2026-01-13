@@ -17,6 +17,7 @@ namespace Winform_RobotArmUI_
         // 위치 관련
         private PointF def, ankle;
         private float stoA = 90f, atoD = 110f; // 링크 길이
+        private float armOffsetDeg = 35f; // 두 번째 팔의 각도 차이
 
         // image
         private Image imgRoot = Properties.Resources.Robot_Root;
@@ -59,7 +60,7 @@ namespace Winform_RobotArmUI_
             btn_NewArm.Enabled = false;
 
             // 최초 실행 시 팔 접기
-            RobotMove(ankle, "LINEAR");
+            FoldArm();
         }
         #region button funtion
         private void btn_MousePoint_Click(object sender, EventArgs e)
@@ -107,14 +108,7 @@ namespace Winform_RobotArmUI_
         private void btn_Ll2_Click(object sender, EventArgs e) => RobotMove(ll2, "ARC");
         private void btn_Fold_Click(object sender, EventArgs e) // btn fold
         {
-            if (ankle == PointF.Empty) return;
-
-            // 접기 직전의 정확한 방향을 저장
-            lockedAngle = (float)Math.Atan2(def.Y - root.Y, def.X - root.X);
-
-            // end-effector(def)을 ankle 위치로 이동시키기
-            isFolded = true;
-            RobotMove(ankle, "LINEAR");
+            FoldArm();
         }
         private void btn_Unfold_Click(object sender, EventArgs e)
         {
@@ -143,6 +137,15 @@ namespace Winform_RobotArmUI_
             isFolded = false;
             RobotMove(new PointF(targetX, targetY), "LINEAR");
         }
+        private void btn_Fold2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Unfold2_Click(object sender, EventArgs e)
+        {
+
+        }
         private void ButtonEnable(bool isFolded)
         {
             this.isFolded = isFolded;
@@ -152,6 +155,7 @@ namespace Winform_RobotArmUI_
         }
         #endregion
 
+        #region worker
         private void RobotMove(PointF def, string mode)
         {
             //this.def = def;
@@ -165,9 +169,12 @@ namespace Winform_RobotArmUI_
 
             targetDef = def;
             currentDef = this.def;
-
             moveMode = mode;
             isMoving = true;
+
+            gb_Control.Enabled = false;
+            gb_Test.Enabled = false;
+            gb_Test2.Enabled = false;
             mover.RunWorkerAsync();
         }
         private void Mover_DoWork(object sender, DoWorkEventArgs e)
@@ -249,9 +256,13 @@ namespace Winform_RobotArmUI_
             ankle = CalculateAnklePos(root, def);
             pnl_MainPaint.Invalidate();
 
+            gb_Control.Enabled = true;
+            gb_Test.Enabled = true;
+            gb_Test2.Enabled = true;
             isMoving = false;
             ButtonEnable(isFolded);
         }
+        #endregion
         private float Distance(PointF a, PointF b)
         {
             float dx = a.X - b.X;
@@ -292,32 +303,82 @@ namespace Winform_RobotArmUI_
             return new PointF(p1.X + (float)Math.Cos(baseAngle + angleA) * stoA,
                              p1.Y + (float)Math.Sin(baseAngle + angleA) * stoA);
         }
+        // 기존 CalculateAnklePos를 아래와 같이 수정 (isFlipped 파라미터 추가)
+        private PointF CalculateAnklePos(PointF p1, PointF p2, bool isFlipped = false)
+        {
+            float d = Distance(p1, p2);
+            float maxRange = stoA + atoD;
+            float minRange = Math.Abs(stoA - atoD);
+
+            if (d >= maxRange) d = maxRange - 0.01f;
+            if (d <= minRange) d = minRange + 0.01f;
+
+            float cosA = (stoA * stoA + d * d - atoD * atoD) / (2 * stoA * d);
+            cosA = Math.Max(-1f, Math.Min(1f, cosA));
+
+            float angleA = (float)Math.Acos(cosA);
+            float baseAngle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
+
+            // isFlipped가 true면 angleA를 빼서 반대 방향으로 꺾이게 함
+            float finalAngle = isFlipped ? (baseAngle - angleA) : (baseAngle + angleA);
+
+            return new PointF(p1.X + (float)Math.Cos(finalAngle) * stoA,
+                             p1.Y + (float)Math.Sin(finalAngle) * stoA);
+        }
 
         private void pnl_MainPaint_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
 
+            if (def == PointF.Empty) return;
 
-            if (ankle == PointF.Empty) return;
+            float maxRange = stoA + atoD;
+            float realDist = Distance(root, def);
+            float clampedDist = Math.Min(realDist, maxRange);
+            float baseAngle = (float)Math.Atan2(def.Y - root.Y, def.X - root.X);
+            float offsetRad = armOffsetDeg * (float)Math.PI / 180f;
 
-            // 각도 계산
-            float angle1 = (float)Math.Atan2(ankle.Y - root.Y, ankle.X - root.X);
-            float angle2 = (float)Math.Atan2(def.Y - ankle.Y, def.X - ankle.X);
-            float offset = 0;
-            //float offset = (float)(Math.PI / 2);
+            // --- [첫 번째 팔: 원본] ---
+            PointF target1 = GetPointByDistance(def, clampedDist); // 현재 방향 그대로
+            PointF currentAnkle1 = CalculateAnklePos(root, target1, false);
 
-            // 이미지 그리기
-            DrawRotatedImage(g, imgLink1, root, angle1 - offset, stoA); 
-            DrawRotatedImage(g, imgLink2, ankle, angle2 - offset, atoD); 
+            float ang1_1 = (float)Math.Atan2(currentAnkle1.Y - root.Y, currentAnkle1.X - root.X);
+            float ang1_2 = (float)Math.Atan2(target1.Y - currentAnkle1.Y, target1.X - currentAnkle1.X);
 
-            float jx = ankle.X - imgAnkle.Width / 7f;
-            float jy = ankle.Y - imgAnkle.Height / 7f;
-            g.DrawImage(imgAnkle, jx, jy);
+            DrawRotatedImage(g, imgLink1, root, ang1_1, stoA);
+            DrawRotatedImage(g, imgLink2, currentAnkle1, ang1_2, atoD);
 
-            float baseX = root.X - imgRoot.Width / 7f;
-            float baseY = root.Y - imgRoot.Height / 7f;
-            g.DrawImage(imgRoot, baseX, baseY);
+            // --- [두 번째 팔: 거리 반전 + 좌우 반전] ---
+            float minFoldedDist = 30f;
+            float targetDist2 = maxRange - clampedDist + minFoldedDist;
+
+            // 타겟 지점을 offset만큼 틀고 거리는 반전시킴
+            PointF target2 = new PointF(
+                root.X + (float)Math.Cos(baseAngle + offsetRad) * targetDist2,
+                root.Y + (float)Math.Sin(baseAngle + offsetRad) * targetDist2
+            );
+            PointF currentAnkle2 = CalculateAnklePos(root, target2, true); // true로 반전
+
+            float ang2_1 = (float)Math.Atan2(currentAnkle2.Y - root.Y, currentAnkle2.X - root.X);
+            float ang2_2 = (float)Math.Atan2(target2.Y - currentAnkle2.Y, target2.X - currentAnkle2.X);
+
+            DrawRotatedImage(g, imgLink1, root, ang2_1, stoA);
+            DrawRotatedImage(g, imgLink2, currentAnkle2, ang2_2, atoD);
+
+            // --- [조인트 그리기] ---
+            DrawJoint(g, imgAnkle, currentAnkle1);
+            DrawJoint(g, imgAnkle, currentAnkle2);
+            DrawJoint(g, imgRoot, root);
+        }
+
+
+        // 조인트 그리기 함수
+        private void DrawJoint(Graphics g, Image img, PointF pos)
+        {
+            float jx = pos.X - img.Width / 7f;
+            float jy = pos.Y - img.Height / 7f;
+            g.DrawImage(img, jx, jy);
         }
 
         // 이미지를 특정 지점을 기준으로 회전시켜 그리는 핵심 함수
@@ -342,5 +403,27 @@ namespace Winform_RobotArmUI_
             g.Restore(state);
         }
 
+        private void FoldArm()
+        {
+            if (root == PointF.Empty || isMoving) return;
+
+            // 1. 현재 마우스(또는 팔)가 바라보는 기준 각도 유지
+            float baseAngle = (float)Math.Atan2(def.Y - root.Y, def.X - root.X);
+
+            // 2. 대칭으로 만날 지점의 거리 결정 
+            // stoA(90), atoD(110) 이므로 차이값인 20만큼 root에서 떨어지면 완전히 접힙니다.
+            // 여유를 주려면 30~50 정도가 적당합니다.
+            float foldDist = Math.Abs(stoA - atoD) + 95f;
+
+            // 3. 대칭 목표 지점 계산
+            PointF symmetricFoldPoint = new PointF(
+                root.X + (float)Math.Cos(baseAngle) * foldDist,
+                root.Y + (float)Math.Sin(baseAngle) * foldDist
+            );
+
+            isFolded = true;
+            // 이제 ankle이 아닌 계산된 대칭 지점으로 이동
+            RobotMove(symmetricFoldPoint, "LINEAR");
+        }
     }
 }

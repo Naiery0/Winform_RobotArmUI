@@ -41,13 +41,17 @@ namespace Winform_RobotArmUI_
             this.btn_Pm4 = new System.Windows.Forms.Button();
             this.btn_Ll1 = new System.Windows.Forms.Button();
             this.btn_Ll2 = new System.Windows.Forms.Button();
-            this.pnl_MainPaint = new System.Windows.Forms.Panel();
             this.gb_Control = new System.Windows.Forms.GroupBox();
             this.btn_Fold = new System.Windows.Forms.Button();
             this.gb_Test = new System.Windows.Forms.GroupBox();
             this.btn_Unfold = new System.Windows.Forms.Button();
+            this.gb_Test2 = new System.Windows.Forms.GroupBox();
+            this.btn_Unfold2 = new System.Windows.Forms.Button();
+            this.btn_Fold2 = new System.Windows.Forms.Button();
+            this.pnl_MainPaint = new System.Windows.Forms.Panel();
             this.gb_Control.SuspendLayout();
             this.gb_Test.SuspendLayout();
+            this.gb_Test2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_MousePoint
@@ -170,20 +174,6 @@ namespace Winform_RobotArmUI_
             this.btn_Ll2.UseVisualStyleBackColor = true;
             this.btn_Ll2.Click += new System.EventHandler(this.btn_Ll2_Click);
             // 
-            // pnl_MainPaint
-            // 
-            this.pnl_MainPaint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnl_MainPaint.BackgroundImage = global::Winform_RobotArmUI_.Properties.Resources.MainPaint;
-            this.pnl_MainPaint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnl_MainPaint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_MainPaint.Location = new System.Drawing.Point(12, 15);
-            this.pnl_MainPaint.Name = "pnl_MainPaint";
-            this.pnl_MainPaint.Size = new System.Drawing.Size(690, 599);
-            this.pnl_MainPaint.TabIndex = 1;
-            this.pnl_MainPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_MainPaint_Paint);
-            this.pnl_MainPaint.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseClick);
-            this.pnl_MainPaint.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseMove);
-            // 
             // gb_Control
             // 
             this.gb_Control.Controls.Add(this.btn_NewArm);
@@ -194,7 +184,7 @@ namespace Winform_RobotArmUI_
             this.gb_Control.Controls.Add(this.btn_Pm3);
             this.gb_Control.Controls.Add(this.btn_Pm4);
             this.gb_Control.Enabled = false;
-            this.gb_Control.Location = new System.Drawing.Point(728, 192);
+            this.gb_Control.Location = new System.Drawing.Point(728, 165);
             this.gb_Control.Name = "gb_Control";
             this.gb_Control.Size = new System.Drawing.Size(113, 247);
             this.gb_Control.TabIndex = 13;
@@ -216,12 +206,12 @@ namespace Winform_RobotArmUI_
             // 
             this.gb_Test.Controls.Add(this.btn_Unfold);
             this.gb_Test.Controls.Add(this.btn_Fold);
-            this.gb_Test.Location = new System.Drawing.Point(728, 514);
+            this.gb_Test.Location = new System.Drawing.Point(728, 434);
             this.gb_Test.Name = "gb_Test";
             this.gb_Test.Size = new System.Drawing.Size(113, 81);
             this.gb_Test.TabIndex = 15;
             this.gb_Test.TabStop = false;
-            this.gb_Test.Text = "FoldTest";
+            this.gb_Test.Text = "LowerArm";
             // 
             // btn_Unfold
             // 
@@ -234,12 +224,60 @@ namespace Winform_RobotArmUI_
             this.btn_Unfold.UseVisualStyleBackColor = true;
             this.btn_Unfold.Click += new System.EventHandler(this.btn_Unfold_Click);
             // 
+            // gb_Test2
+            // 
+            this.gb_Test2.Controls.Add(this.btn_Unfold2);
+            this.gb_Test2.Controls.Add(this.btn_Fold2);
+            this.gb_Test2.Location = new System.Drawing.Point(728, 530);
+            this.gb_Test2.Name = "gb_Test2";
+            this.gb_Test2.Size = new System.Drawing.Size(113, 81);
+            this.gb_Test2.TabIndex = 16;
+            this.gb_Test2.TabStop = false;
+            this.gb_Test2.Text = "UpperArm";
+            // 
+            // btn_Unfold2
+            // 
+            this.btn_Unfold2.Enabled = false;
+            this.btn_Unfold2.Location = new System.Drawing.Point(6, 49);
+            this.btn_Unfold2.Name = "btn_Unfold2";
+            this.btn_Unfold2.Size = new System.Drawing.Size(100, 23);
+            this.btn_Unfold2.TabIndex = 15;
+            this.btn_Unfold2.Text = "unfold";
+            this.btn_Unfold2.UseVisualStyleBackColor = true;
+            this.btn_Unfold2.Click += new System.EventHandler(this.btn_Unfold2_Click);
+            // 
+            // btn_Fold2
+            // 
+            this.btn_Fold2.Enabled = false;
+            this.btn_Fold2.Location = new System.Drawing.Point(6, 20);
+            this.btn_Fold2.Name = "btn_Fold2";
+            this.btn_Fold2.Size = new System.Drawing.Size(100, 23);
+            this.btn_Fold2.TabIndex = 14;
+            this.btn_Fold2.Text = "fold";
+            this.btn_Fold2.UseVisualStyleBackColor = true;
+            this.btn_Fold2.Click += new System.EventHandler(this.btn_Fold2_Click);
+            // 
+            // pnl_MainPaint
+            // 
+            this.pnl_MainPaint.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnl_MainPaint.BackgroundImage = global::Winform_RobotArmUI_.Properties.Resources.MainPaint2;
+            this.pnl_MainPaint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnl_MainPaint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_MainPaint.Location = new System.Drawing.Point(12, 15);
+            this.pnl_MainPaint.Name = "pnl_MainPaint";
+            this.pnl_MainPaint.Size = new System.Drawing.Size(690, 599);
+            this.pnl_MainPaint.TabIndex = 1;
+            this.pnl_MainPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_MainPaint_Paint);
+            this.pnl_MainPaint.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseClick);
+            this.pnl_MainPaint.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseMove);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(945, 639);
+            this.Controls.Add(this.gb_Test2);
             this.Controls.Add(this.gb_Test);
             this.Controls.Add(this.gb_Control);
             this.Controls.Add(this.pnl_MainPaint);
@@ -252,6 +290,7 @@ namespace Winform_RobotArmUI_
             this.Text = "MainForm";
             this.gb_Control.ResumeLayout(false);
             this.gb_Test.ResumeLayout(false);
+            this.gb_Test2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +315,9 @@ namespace Winform_RobotArmUI_
         private System.Windows.Forms.Button btn_Fold;
         private System.Windows.Forms.GroupBox gb_Test;
         private System.Windows.Forms.Button btn_Unfold;
+        private System.Windows.Forms.GroupBox gb_Test2;
+        private System.Windows.Forms.Button btn_Unfold2;
+        private System.Windows.Forms.Button btn_Fold2;
     }
 }
 

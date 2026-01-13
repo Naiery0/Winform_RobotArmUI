@@ -73,6 +73,16 @@ namespace Winform_RobotArmUI_.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap MainPaint2 {
+            get {
+                object obj = ResourceManager.GetObject("MainPaint2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap Robot_Ankle {
             get {
                 object obj = ResourceManager.GetObject("Robot_Ankle", resourceCulture);
@@ -106,6 +116,16 @@ namespace Winform_RobotArmUI_.Properties {
         public static System.Drawing.Bitmap Robot_Root {
             get {
                 object obj = ResourceManager.GetObject("Robot_Root", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        public static System.Drawing.Bitmap Robot_Root2 {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Root2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
