@@ -18,8 +18,8 @@ https://github.com/user-attachments/assets/23728311-8e1a-47cb-ad5a-050c92f57d9a
 
 - 로봇팔 이미지를 넣었더니 구겨지더라, 이미지를 가로로 잘 돌려 둔 이미지를 활용하자.
 
-    <img src="Resource.README/Image01.png" width="200" height="200"/>
-    <img src="Resource.README/Image02.png" width="200" height="200"/>
+    <img src="Resource.README/image01.png" width="200" height="200"/>
+    <img src="Resource.README/image02.png" width="200" height="200"/>
 
 - 기존 ctc 샘플 이미지 위에 올려두기 까지 구현
 [_link](./Resource.README/이미지%20로봇팔.mp4)
@@ -29,7 +29,7 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 ## 2. 로봇팔 애니메이션 구현
 - 우선 로봇팔 UI가 구리다는 피드백을 받아 로봇팔을 새로 만들었다. 훨 낫다
 
-    <img src="Resource.README/Image03.png" width="300" height="200"/>
+    <img src="Resource.README/image03.png" width="300" height="200"/>
 
 - 애니메이션 효과를 구현했음. 원하는 모듈을 향해 로봇팔이 움직이도록 구현. 
 [_link](./Resource.README/UI와%20애니메이션%20업데이트.mp4)
@@ -42,7 +42,7 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 
 - 회전 조건 제약은 간단하지만, 회전 중에 펴지지 않는 것을 어떻게 구현할까 고민.
 
-    <img src="Resource.README/Image04.png" width="400" height="300"/>
+    <img src="Resource.README/image04.png" width="400" height="300"/>
     
     - 목적지 방향을 정한 뒤, root와 끝점 사이 거리만큼 목적지 방향으로 이동한 좌표로 선형 동작하는 방법 구상
     
@@ -52,13 +52,13 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 ## 3. 두 번째 팔 구현
 - LowerArm, UpperArm이 구현되어야 CTC에 적용이 가능함
 
-    <img src="Resource.README/Image05.png" width="500" height="300"/>
+    <img src="Resource.README/image05.png" width="500" height="300"/>
 
     - (자료화면) 이전에 만들었던 CTC 샘플 화면
 
 - 최초에 테스트했던 모달폼에 두 번째 팔 시범 구현
 
-    <img src="Resource.README/Image06.png" width="350" height="200"/>
+    <img src="Resource.README/image06.png" width="350" height="200"/>
     
     - 첫 번째 팔을 기준으로 일정 각도 만큼 틀어서 생성
     - 첫 번째 팔의 끝점(이 화면에선 마우스)이 root와 멀어지면 두번째 팔 끝점은 루트와 가까워지는 방식

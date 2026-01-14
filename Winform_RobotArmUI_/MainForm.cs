@@ -30,7 +30,7 @@ namespace Winform_RobotArmUI_
 
 
         // image
-        public Image imgRoot = Properties.Resources.Robot_Root2;
+        public Image imgRoot = Properties.Resources.Robot_Root;
         public Image imgAnkle = Properties.Resources.Robot_Ankle;
         public Image imgLink1 = Properties.Resources.Robot_Link1;
         public Image imgLink2 = Properties.Resources.Robot_Link2;
