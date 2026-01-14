@@ -17,6 +17,12 @@ namespace Winform_RobotArmUI_.Modals
         private PointF def, ankle, ankle2;
         private float stoA = 90f, atoD = 110f;
         private bool flipDirection = false;
+        
+        // 두 링크 사이의 최소 각도 (이미지의 빨간색 표시 부분)
+        private float minJointAngle = 30f;  // 예: 30도 미만으로 접히지 않음
+                                            // 두 링크 사이의 최대 각도 (팔이 일자로 펴지는 정도 제한)
+        private float maxJointAngle = 180f; // 예: 170도 이상 펴지지 않음 (완전 직선 방지)
+        private float minStopDistance = 80f;
 
         private float armOffsetDeg = 35f;
         // image
@@ -138,41 +144,68 @@ namespace Winform_RobotArmUI_.Modals
             );
         }
 
-        private PointF CalculateAnklePos(PointF p1, PointF p2)
+
+        //// 3. 계산 함수 수정 (전역 변수 flipDirection 대신 파라미터를 받도록 변경)
+        //private PointF CalculateAnklePos(PointF p1, PointF p2, bool isFlipped)
+        //{
+        //    float length = (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
+
+        //    if (length >= stoA + atoD)
+        //    {
+        //        float angle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
+        //        return new PointF(p1.X + (float)Math.Cos(angle) * stoA, p1.Y + (float)Math.Sin(angle) * stoA);
+        //    }
+
+        //    float cosAngle = (stoA * stoA + length * length - atoD * atoD) / (2 * stoA * length);
+        //    float angleA = (float)Math.Acos(Math.Max(-1, Math.Min(1, cosAngle)));
+        //    float baseAngle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
+
+        //    // 파라미터로 받은 isFlipped에 따라 각도 방향 결정
+        //    float finalAngle = isFlipped ? (baseAngle - angleA) : (baseAngle + angleA);
+
+        //    return new PointF(p1.X + (float)Math.Cos(finalAngle) * stoA, p1.Y + (float)Math.Sin(finalAngle) * stoA);
+        //}
+
+        private PointF CalculateAnklePos(PointF p1, PointF p2, bool isFlipped = false)
         {
-            float length = (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
-            if (length >= stoA + atoD)
-            {
-                float angle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
-                return new PointF(p1.X + (float)Math.Cos(angle) * stoA, p1.Y + (float)Math.Sin(angle) * stoA);
-            }
-            float cosAngle = (stoA * stoA + length * length - atoD * atoD) / (2 * stoA * length);
-            float angleA = (float)Math.Acos(Math.Max(-1, Math.Min(1, cosAngle)));
+            float d = (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
+
+            // --- [관절 내부 각도 제한 로직] ---
+
+            // 1. 최소 각도(minJointAngle)를 거리로 변환
+            float minRad = minJointAngle * (float)Math.PI / 180f;
+            float minDist = (float)Math.Sqrt(
+                stoA * stoA + atoD * atoD - 2 * stoA * atoD * (float)Math.Cos(minRad)
+            );
+
+            // 2. 최대 각도(maxJointAngle)를 거리로 변환
+            float maxRad = maxJointAngle * (float)Math.PI / 180f;
+            float maxDist = (float)Math.Sqrt(
+                stoA * stoA + atoD * atoD - 2 * stoA * atoD * (float)Math.Cos(maxRad)
+            );
+
+            // 3. 물리적 한계값(두 팔의 길이 차이 및 합)과 비교하여 최종 범위 결정
+            float finalMin = Math.Max(minDist, Math.Abs(stoA - atoD));
+            float finalMax = Math.Min(maxDist, stoA + atoD);
+
+            // 4. 현재 거리 d를 제한 범위 내로 고정
+            if (d < finalMin) d = finalMin + 0.01f;
+            if (d > finalMax) d = finalMax - 0.01f;
+
+            // --- [이후는 기존 역기구학 계산] ---
+            float cosA = (stoA * stoA + d * d - atoD * atoD) / (2 * stoA * d);
+            cosA = Math.Max(-1f, Math.Min(1f, cosA));
+
+            float angleA = (float)Math.Acos(cosA);
             float baseAngle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
-            float finalAngle = flipDirection ? (baseAngle - angleA) : (baseAngle + angleA);
-            return new PointF(p1.X + (float)Math.Cos(finalAngle) * stoA, p1.Y + (float)Math.Sin(finalAngle) * stoA);
-        }
 
-        // 3. 계산 함수 수정 (전역 변수 flipDirection 대신 파라미터를 받도록 변경)
-        private PointF CalculateAnklePos(PointF p1, PointF p2, bool isFlipped)
-        {
-            float length = (float)Math.Sqrt(Math.Pow(p1.X - p2.X, 2) + Math.Pow(p1.Y - p2.Y, 2));
-
-            if (length >= stoA + atoD)
-            {
-                float angle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
-                return new PointF(p1.X + (float)Math.Cos(angle) * stoA, p1.Y + (float)Math.Sin(angle) * stoA);
-            }
-
-            float cosAngle = (stoA * stoA + length * length - atoD * atoD) / (2 * stoA * length);
-            float angleA = (float)Math.Acos(Math.Max(-1, Math.Min(1, cosAngle)));
-            float baseAngle = (float)Math.Atan2(p2.Y - p1.Y, p2.X - p1.X);
-
-            // 파라미터로 받은 isFlipped에 따라 각도 방향 결정
             float finalAngle = isFlipped ? (baseAngle - angleA) : (baseAngle + angleA);
 
-            return new PointF(p1.X + (float)Math.Cos(finalAngle) * stoA, p1.Y + (float)Math.Sin(finalAngle) * stoA);
+            return new PointF(p1.X + (float)Math.Cos(finalAngle) * stoA,
+                              p1.Y + (float)Math.Sin(finalAngle) * stoA);
         }
+
+
         private Image CreatePlaceholderImage(Color color, int w, int h)
         {
             Bitmap bmp = new Bitmap(w, h);

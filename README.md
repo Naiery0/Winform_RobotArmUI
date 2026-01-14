@@ -52,14 +52,43 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 ## 3. 두 번째 팔 구현
 - LowerArm, UpperArm이 구현되어야 CTC에 적용이 가능함
 
-    <img src="Resource.README/Image05.png" width="600" height="300"/>
+    <img src="Resource.README/Image05.png" width="500" height="300"/>
 
-    - 이전에 만들었던 CTC 샘플 화면
+    - (자료화면) 이전에 만들었던 CTC 샘플 화면
 
-- 최초에 테스트했던 코드에 두 번째 팔 시범 구현
+- 최초에 테스트했던 모달폼에 두 번째 팔 시범 구현
 
     <img src="Resource.README/Image06.png" width="350" height="200"/>
     
     - 첫 번째 팔을 기준으로 일정 각도 만큼 틀어서 생성
     - 첫 번째 팔의 끝점(이 화면에선 마우스)이 root와 멀어지면 두번째 팔 끝점은 루트와 가까워지는 방식
 
+- 그대로 메인 폼으로 가져오기 (with. UI 개선)
+
+    <img src="Resource.README/image07.png" width="350" height="300">
+
+- 두번째 팔 접기&펴기, 위치 조정 기능 구현 완료 
+[_link](Resource.README/두번째팔%20제어%20완료.mp4)
+
+## 4. 양팔 동작 개선
+
+- 개선 전: 양팔 넣었다 빼려면
+    1. LowerArm이 목적지를 바라보도록 회전
+    2. LowerArm을 뻗었다가 접는다
+    3. UpperArm이 목적지를 바라보도록 회전
+    4. UpperArm을 뻗었다가 접는다
+
+- 개선 후:
+    1. 로봇의 중앙이 목적지를 바라보도록 회전
+    2. LowerArm을 뻗었다가 접는다
+    3. UpperArm을 뻗었다가 접는다
+
+    <img src="Resource.README/image08.png" width="600" height="400">
+
+- 개선 방법
+
+    <img src="Resource.README/image09.png" width="400" height="300">
+
+- 팔을 뻗을 지점에서 양팔 사이 각의 절반만큼 각도를 돌린 지점에 팔이 가도록 하니 됨.
+- 접을 때도 비슷한 방식으로
+[_link](Resource.README/팔%20동작%20개선.mp4)
