@@ -34,6 +34,10 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 - 애니메이션 효과를 구현했음. 원하는 모듈을 향해 로봇팔이 움직이도록 구현. 
 [_link](./Resource.README/UI와%20애니메이션%20업데이트.mp4)
 
+
+https://github.com/user-attachments/assets/a0a0b0e0-ac83-4257-8b5c-e860ee47ca30
+
+
 - 구현 과정에서 선형 동작과 직선 동작을 분리하였음 (끝점 가준)
 
 - 그러나 원하는 동작이 아니었다. 
@@ -48,6 +52,10 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
     
 - 성공 
 [_link](./Resource.README/접은%20채로%20회전.mp4)
+
+
+https://github.com/user-attachments/assets/90a331ab-afa1-4fba-b07e-be61aecbe987
+
 
 ## 3. 두 번째 팔 구현
 - LowerArm, UpperArm이 구현되어야 CTC에 적용이 가능함
@@ -69,6 +77,10 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 
 - 두번째 팔 접기&펴기, 위치 조정 기능 구현 완료 
 [_link](Resource.README/두번째팔%20제어%20완료.mp4)
+
+
+https://github.com/user-attachments/assets/7429303e-8f15-45d9-a1e4-6487abc8a88a
+
 
 ## 4. 양팔 동작 개선
 
@@ -92,3 +104,7 @@ https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 - 팔을 뻗을 지점에서 양팔 사이 각의 절반만큼 각도를 돌린 지점에 팔이 가도록 하니 됨.
 - 접을 때도 비슷한 방식으로
 [_link](Resource.README/팔%20동작%20개선.mp4)
+
+
+https://github.com/user-attachments/assets/755c1088-d359-4cf7-becd-488135d4f86a
+
