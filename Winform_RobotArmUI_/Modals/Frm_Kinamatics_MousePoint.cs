@@ -22,7 +22,7 @@ namespace Winform_RobotArmUI_.Modals
         private float minJointAngle = 30f;  // 예: 30도 미만으로 접히지 않음
                                             // 두 링크 사이의 최대 각도 (팔이 일자로 펴지는 정도 제한)
         private float maxJointAngle = 180f; // 예: 170도 이상 펴지지 않음 (완전 직선 방지)
-        private float minStopDistance = 80f;
+        //private float minStopDistance = 80f;
 
         private float armOffsetDeg = 35f;
         // image

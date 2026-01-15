@@ -16,8 +16,8 @@ namespace Winform_RobotArmUI_
     public partial class MainForm : Form
     {
         // 위치 관련
-        public float stoA = 90f, atoD = 110f; // 링크 길이
-        public float armOffsetDeg = 40f; // 두 번째 팔의 각도 차이
+        public float stoA = 100f, atoD = 125f; // 링크 길이
+        public float armOffsetDeg = 40f; // 두 번째 팔의 각도 차이 (높을수록 줄어듦)
 
         public float minElbowAngle = 40f; // 가장 많이 접혔을 때의 각도 (minDistLimit에 의해 무시될 확률이 높음)
 
@@ -30,13 +30,13 @@ namespace Winform_RobotArmUI_
 
 
         // image
-        public Image imgRoot = Properties.Resources.Robot_Root;
+        public Image imgRoot = Properties.Resources.Robot_Root3;
         public Image imgAnkle = Properties.Resources.Robot_Ankle;
         public Image imgLink1 = Properties.Resources.Robot_Link1;
         public Image imgLink2 = Properties.Resources.Robot_Link2;
 
         // 루트 이미지 크기 조절
-        private const float NUM = 35f;
+        private const float NUM = 40f;
         //private const float NUM = 50f; 
         public float rootImageWidth = NUM;
         public float rootImageHeight = NUM;
@@ -76,7 +76,7 @@ namespace Winform_RobotArmUI_
             mover.RunWorkerCompleted += Mover_RunWorkerCompleted;
             pnl_MainPaint.Invalidate();
 
-            FoldedSymmetryAngle =+ (float)(0.5 * (stoA + atoD) - 20 + minDistLimit / 2) + 0f;
+            FoldedSymmetryAngle = 0.5f * (stoA + atoD + minDistLimit) - Math.Abs(stoA - atoD);
 
             // 최초 실행 시 팔 접기
             FoldArm();
@@ -282,7 +282,7 @@ namespace Winform_RobotArmUI_
         }
         #endregion
         private float Distance(PointF a, PointF b)
-       {
+        {
             float dx = a.X - b.X;
             float dy = a.Y - b.Y;
             return (float)Math.Sqrt(dx * dx + dy * dy);
@@ -321,7 +321,12 @@ namespace Winform_RobotArmUI_
 
             return new PointF(newX, newY);
         }
-
+        private float GetDynamicFoldAngle()
+        {
+            // 기존의 고정값 20f나 0.5 같은 비율을 팔 길이의 합(MaxRange)에 비례하게 변경
+            float maxRange = stoA + atoD;
+            return (float)(0.5 * maxRange - (maxRange * 0.1f) + minDistLimit / 2);
+        }
         private PointF CalculateAnklePos(PointF p1, PointF p2, bool isFlipped = false)
         {
             float d = Distance(p1, p2);
@@ -404,9 +409,7 @@ namespace Winform_RobotArmUI_
 
             DrawRotatedImage(g, imgLink1, root, ang1_1, stoA);
             DrawRotatedImage(g, imgLink2, currentAnkle1, ang1_2, atoD);
-
-            // 두 번째 팔: 거리 반전 + 좌우 반전
-            float targetDist2 = (maxRange + minDistLimit) - clampedDist; 
+            float targetDist2 = (maxRange + minDistLimit) - clampedDist;
             targetDist2 = Math.Min(targetDist2, maxRange - 0.01f);
 
             if (targetDist2 < minDistLimit)
@@ -468,7 +471,9 @@ namespace Winform_RobotArmUI_
             // length가 너무 작으면 에러가 날 수 있으므로 최소값 1 설정
             float drawWidth = Math.Max(1f, length);
             g.DrawImage(img, 0, -img.Height / 2, drawWidth, img.Height);
-
+            //0이 아니라 -10 정도의 오프셋을 주면 link2가 link1 안쪽으로 파고듭니다.
+            //float overlapOffset = -15f; // 겹치고 싶은 픽셀 양
+            //g.DrawImage(img, overlapOffset, -img.Height / 2, length + Math.Abs(overlapOffset), img.Height);
             g.Restore(state);
         }
         // 루트 전용
@@ -518,6 +523,12 @@ namespace Winform_RobotArmUI_
         {
             lbl_Point_X.Text = $"X: {e.X}";
             lbl_Point_Y.Text = $"Y: {e.Y}";
+
+
+            //// 첫 번째 팔 (현재 설정된 방향)
+            //def = e.Location;
+            //ankle = CalculateAnklePos(root, def, false);
+            //pnl_MainPaint.Invalidate(); // 폼 전체가 아닌 '패널'만 다시 그리도록 요청
         }
     }
 }

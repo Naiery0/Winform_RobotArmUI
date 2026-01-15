@@ -1,15 +1,15 @@
 # Winform_RobotArmUI
 윈폼으로 로봇팔 접었다 폈다 구현 방안 연구 리포지토리
 
-### 왜 이 리포지토리를 만들었죠?
-- CTC 만드는 데 사용할 로봇팔 UI 연구를 위해
-- 본 연구가 성공적으로 마무리 된다면 본 내용은 실제 프로젝트에 투입될 예정 
+## 개발 목표
+- CTC 만드는 데 사용할 로봇팔 UI 연구, 본 연구가 성공적으로 마무리 된다면 실제 프로젝트에 투입될 예정 
+- 2축 & 3축 로봇팔 구현
 
 ### 참고 소스
 - 어떻게 시작해야 하나 ppt로 그려 보면서 고민하다, 감사하게도 깃허브에서 [로봇팔이 구현된 Unity 코드](
 https://github.com/ctw0727/2D_Robotic_Arm/blob/main/KR_RoboticArmPrecoding.cs)를 찾을 수 있었다.
 
-## 1. 로봇팔 구현하기
+### 1. 2축 로봇팔 구현하기 (Winform_RobotArmUI_)
 - 오픈소스 덕에 로봇팔 구현 자체는 어렵지 않았다. 조금 고쳐서 나온 결과물 (알고리즘 이해하려고 기구학도 잠깐 공부했다.)
  [_link](./Resource.README/처음%20로봇팔.mp4)
 
@@ -26,7 +26,7 @@ https://github.com/user-attachments/assets/23728311-8e1a-47cb-ad5a-050c92f57d9a
 
 https://github.com/user-attachments/assets/13d923b8-6212-45fe-80df-80271a11bde4
 
-## 2. 로봇팔 애니메이션 구현
+### 2. 로봇팔 애니메이션 구현
 - 우선 로봇팔 UI가 구리다는 피드백을 받아 로봇팔을 새로 만들었다. 훨 낫다
 
     <img src="Resource.README/image03.png" width="300" height="200"/>
@@ -57,7 +57,7 @@ https://github.com/user-attachments/assets/a0a0b0e0-ac83-4257-8b5c-e860ee47ca30
 https://github.com/user-attachments/assets/90a331ab-afa1-4fba-b07e-be61aecbe987
 
 
-## 3. 두 번째 팔 구현
+### 3. 두 번째 팔 구현
 - LowerArm, UpperArm이 구현되어야 CTC에 적용이 가능함
 
     <img src="Resource.README/image05.png" width="500" height="300"/>
@@ -82,7 +82,7 @@ https://github.com/user-attachments/assets/90a331ab-afa1-4fba-b07e-be61aecbe987
 https://github.com/user-attachments/assets/7429303e-8f15-45d9-a1e4-6487abc8a88a
 
 
-## 4. 양팔 동작 개선
+### 4. 양팔 동작 개선
 
 - 개선 전: 양팔 넣었다 빼려면
     1. LowerArm이 목적지를 바라보도록 회전
@@ -108,3 +108,17 @@ https://github.com/user-attachments/assets/7429303e-8f15-45d9-a1e4-6487abc8a88a
 
 https://github.com/user-attachments/assets/755c1088-d359-4cf7-becd-488135d4f86a
 
+### 5. 3축 로봇팔 구현 (Winform_RobotArmUI_new)
+
+- 디자인 구상
+ 
+    <img src="Resource.README/image10.png" width="300" height="300">
+
+- 3축 테스트 구현 성공
+[_link](Resource.README/3축%20로봇팔%20테스트%20구현%20성공.mp4)
+
+- 루트를 기준으로 손목 위치가 상하/좌우로 넘어갈 때마다 팔꿈치가 180도 반전이 되어 버리는 문제를 3시간 끝에 해결! (성공하고 사무실에서 울부짖음)
+
+- 코사인으로 위치를 구할 경우 두 가지 해를 가지기 때문에 더 가까운 해를 선택하여 위같은 현상이 발생
+
+- 이전 프레임의 팔꿈치 위치와 더 가까운 해를 선택하는 방식으로 문제 해결

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Winform_RobotArmUI_.Properties {
+namespace Winform_RobotArmUI_new.Properties {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace Winform_RobotArmUI_.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace Winform_RobotArmUI_.Properties {
         ///   이 클래스에서 사용하는 캐시된 ResourceManager 인스턴스를 반환합니다.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Winform_RobotArmUI_.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Winform_RobotArmUI_new.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Winform_RobotArmUI_.Properties {
         ///   재정의합니다.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Winform_RobotArmUI_.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        public static System.Drawing.Bitmap MainPaint {
+        internal static System.Drawing.Bitmap MainPaint {
             get {
                 object obj = ResourceManager.GetObject("MainPaint", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,27 +73,7 @@ namespace Winform_RobotArmUI_.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        public static System.Drawing.Bitmap MainPaint2 {
-            get {
-                object obj = ResourceManager.GetObject("MainPaint2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        public static System.Drawing.Bitmap Robot_Ankle {
-            get {
-                object obj = ResourceManager.GetObject("Robot_Ankle", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        public static System.Drawing.Bitmap Robot_Link1 {
+        internal static System.Drawing.Bitmap Robot_Link1 {
             get {
                 object obj = ResourceManager.GetObject("Robot_Link1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -103,7 +83,7 @@ namespace Winform_RobotArmUI_.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        public static System.Drawing.Bitmap Robot_Link2 {
+        internal static System.Drawing.Bitmap Robot_Link2 {
             get {
                 object obj = ResourceManager.GetObject("Robot_Link2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +93,17 @@ namespace Winform_RobotArmUI_.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        public static System.Drawing.Bitmap Robot_Root {
+        internal static System.Drawing.Bitmap Robot_Link3 {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Link3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Root {
             get {
                 object obj = ResourceManager.GetObject("Robot_Root", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,19 +113,9 @@ namespace Winform_RobotArmUI_.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        public static System.Drawing.Bitmap Robot_Root2 {
+        internal static System.Drawing.Bitmap Robot_Root2 {
             get {
                 object obj = ResourceManager.GetObject("Robot_Root2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        public static System.Drawing.Bitmap Robot_Root3 {
-            get {
-                object obj = ResourceManager.GetObject("Robot_Root3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

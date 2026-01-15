@@ -55,7 +55,7 @@ namespace Winform_RobotArmUI_
             // 
             // btn_MousePoint
             // 
-            this.btn_MousePoint.Location = new System.Drawing.Point(858, 12);
+            this.btn_MousePoint.Location = new System.Drawing.Point(708, 114);
             this.btn_MousePoint.Name = "btn_MousePoint";
             this.btn_MousePoint.Size = new System.Drawing.Size(75, 23);
             this.btn_MousePoint.TabIndex = 0;
@@ -66,7 +66,7 @@ namespace Winform_RobotArmUI_
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(726, 22);
+            this.label1.Location = new System.Drawing.Point(708, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 12);
             this.label1.TabIndex = 2;
@@ -76,7 +76,7 @@ namespace Winform_RobotArmUI_
             // 
             this.lbl_Point_X.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_Point_X.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_Point_X.Location = new System.Drawing.Point(728, 40);
+            this.lbl_Point_X.Location = new System.Drawing.Point(710, 33);
             this.lbl_Point_X.Name = "lbl_Point_X";
             this.lbl_Point_X.Size = new System.Drawing.Size(100, 23);
             this.lbl_Point_X.TabIndex = 3;
@@ -87,7 +87,7 @@ namespace Winform_RobotArmUI_
             // 
             this.lbl_Point_Y.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_Point_Y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_Point_Y.Location = new System.Drawing.Point(728, 72);
+            this.lbl_Point_Y.Location = new System.Drawing.Point(710, 65);
             this.lbl_Point_Y.Name = "lbl_Point_Y";
             this.lbl_Point_Y.Size = new System.Drawing.Size(100, 25);
             this.lbl_Point_Y.TabIndex = 4;
@@ -97,7 +97,7 @@ namespace Winform_RobotArmUI_
             // lbl_MiddelSpot
             // 
             this.lbl_MiddelSpot.AutoSize = true;
-            this.lbl_MiddelSpot.Location = new System.Drawing.Point(726, 106);
+            this.lbl_MiddelSpot.Location = new System.Drawing.Point(708, 99);
             this.lbl_MiddelSpot.Name = "lbl_MiddelSpot";
             this.lbl_MiddelSpot.Size = new System.Drawing.Size(57, 12);
             this.lbl_MiddelSpot.TabIndex = 5;
@@ -107,7 +107,7 @@ namespace Winform_RobotArmUI_
             // 
             this.btn_Pm1.Location = new System.Drawing.Point(6, 20);
             this.btn_Pm1.Name = "btn_Pm1";
-            this.btn_Pm1.Size = new System.Drawing.Size(100, 23);
+            this.btn_Pm1.Size = new System.Drawing.Size(101, 20);
             this.btn_Pm1.TabIndex = 7;
             this.btn_Pm1.Text = "PM1";
             this.btn_Pm1.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@ namespace Winform_RobotArmUI_
             // 
             this.btn_Pm2.Location = new System.Drawing.Point(6, 49);
             this.btn_Pm2.Name = "btn_Pm2";
-            this.btn_Pm2.Size = new System.Drawing.Size(100, 23);
+            this.btn_Pm2.Size = new System.Drawing.Size(101, 20);
             this.btn_Pm2.TabIndex = 8;
             this.btn_Pm2.Text = "PM2";
             this.btn_Pm2.UseVisualStyleBackColor = true;
@@ -127,7 +127,7 @@ namespace Winform_RobotArmUI_
             // 
             this.btn_Pm3.Location = new System.Drawing.Point(6, 78);
             this.btn_Pm3.Name = "btn_Pm3";
-            this.btn_Pm3.Size = new System.Drawing.Size(100, 23);
+            this.btn_Pm3.Size = new System.Drawing.Size(101, 20);
             this.btn_Pm3.TabIndex = 9;
             this.btn_Pm3.Text = "PM3";
             this.btn_Pm3.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@ namespace Winform_RobotArmUI_
             // 
             this.btn_Pm4.Location = new System.Drawing.Point(6, 107);
             this.btn_Pm4.Name = "btn_Pm4";
-            this.btn_Pm4.Size = new System.Drawing.Size(100, 23);
+            this.btn_Pm4.Size = new System.Drawing.Size(101, 20);
             this.btn_Pm4.TabIndex = 10;
             this.btn_Pm4.Text = "PM4";
             this.btn_Pm4.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@ namespace Winform_RobotArmUI_
             // 
             this.btn_Ll1.Location = new System.Drawing.Point(6, 136);
             this.btn_Ll1.Name = "btn_Ll1";
-            this.btn_Ll1.Size = new System.Drawing.Size(100, 23);
+            this.btn_Ll1.Size = new System.Drawing.Size(101, 20);
             this.btn_Ll1.TabIndex = 11;
             this.btn_Ll1.Text = "LL1";
             this.btn_Ll1.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@ namespace Winform_RobotArmUI_
             // 
             this.btn_Ll2.Location = new System.Drawing.Point(6, 165);
             this.btn_Ll2.Name = "btn_Ll2";
-            this.btn_Ll2.Size = new System.Drawing.Size(100, 23);
+            this.btn_Ll2.Size = new System.Drawing.Size(101, 20);
             this.btn_Ll2.TabIndex = 12;
             this.btn_Ll2.Text = "LL2";
             this.btn_Ll2.UseVisualStyleBackColor = true;
@@ -172,9 +172,9 @@ namespace Winform_RobotArmUI_
             this.gb_Control.Controls.Add(this.btn_Pm3);
             this.gb_Control.Controls.Add(this.btn_Pm4);
             this.gb_Control.Enabled = false;
-            this.gb_Control.Location = new System.Drawing.Point(727, 140);
+            this.gb_Control.Location = new System.Drawing.Point(710, 196);
             this.gb_Control.Name = "gb_Control";
-            this.gb_Control.Size = new System.Drawing.Size(113, 203);
+            this.gb_Control.Size = new System.Drawing.Size(113, 192);
             this.gb_Control.TabIndex = 13;
             this.gb_Control.TabStop = false;
             this.gb_Control.Text = "Control_Lower";
@@ -231,7 +231,7 @@ namespace Winform_RobotArmUI_
             this.pnl_MainPaint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_MainPaint.Location = new System.Drawing.Point(12, 15);
             this.pnl_MainPaint.Name = "pnl_MainPaint";
-            this.pnl_MainPaint.Size = new System.Drawing.Size(690, 599);
+            this.pnl_MainPaint.Size = new System.Drawing.Size(690, 581);
             this.pnl_MainPaint.TabIndex = 1;
             this.pnl_MainPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_MainPaint_Paint);
             this.pnl_MainPaint.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseClick);
@@ -241,7 +241,7 @@ namespace Winform_RobotArmUI_
             // 
             this.gb_LowerFold.Controls.Add(this.btn_Fold);
             this.gb_LowerFold.Controls.Add(this.btn_Unfold);
-            this.gb_LowerFold.Location = new System.Drawing.Point(727, 360);
+            this.gb_LowerFold.Location = new System.Drawing.Point(710, 417);
             this.gb_LowerFold.Name = "gb_LowerFold";
             this.gb_LowerFold.Size = new System.Drawing.Size(113, 83);
             this.gb_LowerFold.TabIndex = 13;
@@ -252,7 +252,7 @@ namespace Winform_RobotArmUI_
             // 
             this.groupBox1.Controls.Add(this.btn_Fold2);
             this.groupBox1.Controls.Add(this.btn_Unfold2);
-            this.groupBox1.Location = new System.Drawing.Point(727, 452);
+            this.groupBox1.Location = new System.Drawing.Point(710, 506);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(113, 83);
             this.groupBox1.TabIndex = 16;
@@ -264,7 +264,7 @@ namespace Winform_RobotArmUI_
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(958, 639);
+            this.ClientSize = new System.Drawing.Size(840, 649);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_LowerFold);
             this.Controls.Add(this.gb_Control);
