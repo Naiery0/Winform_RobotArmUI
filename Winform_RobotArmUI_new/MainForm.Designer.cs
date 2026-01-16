@@ -48,6 +48,7 @@ namespace Winform_RobotArmUI_new
             this.lbl_Point_X = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_MousePoint = new System.Windows.Forms.Button();
+            this.btn_Load = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gb_LowerFold.SuspendLayout();
             this.gb_Control.SuspendLayout();
@@ -57,7 +58,7 @@ namespace Winform_RobotArmUI_new
             // 
             this.groupBox1.Controls.Add(this.btn_Fold2);
             this.groupBox1.Controls.Add(this.btn_Unfold2);
-            this.groupBox1.Location = new System.Drawing.Point(710, 503);
+            this.groupBox1.Location = new System.Drawing.Point(708, 503);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(113, 83);
             this.groupBox1.TabIndex = 25;
@@ -121,6 +122,7 @@ namespace Winform_RobotArmUI_new
             // 
             // gb_Control
             // 
+            this.gb_Control.Controls.Add(this.btn_Load);
             this.gb_Control.Controls.Add(this.btn_Pm1);
             this.gb_Control.Controls.Add(this.btn_Ll2);
             this.gb_Control.Controls.Add(this.btn_Pm2);
@@ -128,9 +130,9 @@ namespace Winform_RobotArmUI_new
             this.gb_Control.Controls.Add(this.btn_Pm3);
             this.gb_Control.Controls.Add(this.btn_Pm4);
             this.gb_Control.Enabled = false;
-            this.gb_Control.Location = new System.Drawing.Point(710, 193);
+            this.gb_Control.Location = new System.Drawing.Point(710, 160);
             this.gb_Control.Name = "gb_Control";
-            this.gb_Control.Size = new System.Drawing.Size(113, 192);
+            this.gb_Control.Size = new System.Drawing.Size(113, 226);
             this.gb_Control.TabIndex = 24;
             this.gb_Control.TabStop = false;
             this.gb_Control.Text = "Control_Lower";
@@ -205,6 +207,10 @@ namespace Winform_RobotArmUI_new
             this.pnl_MainPaint.Name = "pnl_MainPaint";
             this.pnl_MainPaint.Size = new System.Drawing.Size(690, 617);
             this.pnl_MainPaint.TabIndex = 18;
+            this.pnl_MainPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_MainPaint_Paint);
+            this.pnl_MainPaint.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseClick);
+            this.pnl_MainPaint.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseDoubleClick);
+            this.pnl_MainPaint.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseMove);
             // 
             // lbl_MiddelSpot
             // 
@@ -256,12 +262,22 @@ namespace Winform_RobotArmUI_new
             this.btn_MousePoint.UseVisualStyleBackColor = true;
             this.btn_MousePoint.Click += new System.EventHandler(this.btn_MousePoint_Click);
             // 
+            // btn_Load
+            // 
+            this.btn_Load.Location = new System.Drawing.Point(6, 194);
+            this.btn_Load.Name = "btn_Load";
+            this.btn_Load.Size = new System.Drawing.Size(101, 20);
+            this.btn_Load.TabIndex = 13;
+            this.btn_Load.Text = "Load";
+            this.btn_Load.UseVisualStyleBackColor = true;
+            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(837, 656);
+            this.ClientSize = new System.Drawing.Size(830, 656);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gb_LowerFold);
             this.Controls.Add(this.gb_Control);
@@ -302,6 +318,7 @@ namespace Winform_RobotArmUI_new
         private System.Windows.Forms.Label lbl_Point_X;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_MousePoint;
+        private System.Windows.Forms.Button btn_Load;
     }
 }
 

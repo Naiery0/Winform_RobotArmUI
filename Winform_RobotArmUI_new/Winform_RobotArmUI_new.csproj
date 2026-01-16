@@ -107,5 +107,14 @@
   <ItemGroup>
     <None Include="Resources\Robot_Root2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Link1_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Link2_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Robot_Link3_2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

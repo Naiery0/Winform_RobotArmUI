@@ -7,7 +7,7 @@ namespace Winform_RobotArmUI_new
 {
     public partial class TestForm : Form
     {
-        // 1. 설정값 (필요한 것만 남김)
+        // 설정값 
         private float overlap = 10f;
         private float L1 => 120f - (overlap * 2);
         private float L2 => 120f - (overlap * 2);
@@ -16,7 +16,7 @@ namespace Winform_RobotArmUI_new
         private PointF root = new PointF(400, 300);
         private PointF def; // 마우스 위치 기록용
 
-        // 리소스 이미지 (실제 프로젝트의 리소스명에 맞게 유지)
+        // 리소스 이미지 
         private Image imgLink1 = Properties.Resources.Robot_Link1;
         private Image imgLink2 = Properties.Resources.Robot_Link2;
         private Image imgLink3 = Properties.Resources.Robot_Link3;

@@ -83,6 +83,16 @@ namespace Winform_RobotArmUI_new.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Robot_Link1_2 {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Link1_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap Robot_Link2 {
             get {
                 object obj = ResourceManager.GetObject("Robot_Link2", resourceCulture);
@@ -93,9 +103,29 @@ namespace Winform_RobotArmUI_new.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap Robot_Link2_2 {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Link2_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap Robot_Link3 {
             get {
                 object obj = ResourceManager.GetObject("Robot_Link3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap Robot_Link3_2 {
+            get {
+                object obj = ResourceManager.GetObject("Robot_Link3_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

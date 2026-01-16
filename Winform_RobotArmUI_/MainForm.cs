@@ -210,16 +210,10 @@ namespace Winform_RobotArmUI_
 
             // 1. 총 이동량 계산
             float totalMovement;
-            if (moveMode == "ARC")
-            {
-                // 호 이동일 때는 '각도 차이'와 '반지름'을 이용한 호의 길이를 기준으로 함
+            if (moveMode == "ARC") // 호 이동일 때는 '각도 차이'와 '반지름'을 이용한 호의 길이를 기준으로 함
                 totalMovement = Math.Abs(angleDiff) * startRadius;
-            }
-            else
-            {
-                // 직선 이동일 때는 두 점 사이의 거리 기준
+            else // 직선 이동일 때는 두 점 사이의 거리 기준
                 totalMovement = Distance(startPoint, targetDef);
-            }
 
             float constantSpeed = this.constantSpeed;
             if (moveMode == "LINEAR")

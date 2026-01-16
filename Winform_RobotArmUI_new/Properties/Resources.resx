@@ -124,11 +124,20 @@
   <data name="Robot_Link1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Robot_Link1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Robot_Link1_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Link1_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Robot_Link2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Robot_Link2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Robot_Link2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Link2_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Robot_Link3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Robot_Link3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Robot_Link3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Robot_Link3_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Robot_Root" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Robot_Root.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
