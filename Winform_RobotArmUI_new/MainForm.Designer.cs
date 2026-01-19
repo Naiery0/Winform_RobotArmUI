@@ -36,29 +36,38 @@ namespace Winform_RobotArmUI_new
             this.btn_Fold = new System.Windows.Forms.Button();
             this.btn_Unfold = new System.Windows.Forms.Button();
             this.gb_Control = new System.Windows.Forms.GroupBox();
+            this.btn_Load = new System.Windows.Forms.Button();
             this.btn_Pm1 = new System.Windows.Forms.Button();
             this.btn_Ll2 = new System.Windows.Forms.Button();
             this.btn_Pm2 = new System.Windows.Forms.Button();
             this.btn_Ll1 = new System.Windows.Forms.Button();
             this.btn_Pm3 = new System.Windows.Forms.Button();
             this.btn_Pm4 = new System.Windows.Forms.Button();
-            this.pnl_MainPaint = new System.Windows.Forms.Panel();
             this.lbl_MiddelSpot = new System.Windows.Forms.Label();
             this.lbl_Point_Y = new System.Windows.Forms.Label();
             this.lbl_Point_X = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_MousePoint = new System.Windows.Forms.Button();
-            this.btn_Load = new System.Windows.Forms.Button();
+            this.pnl_MainPaint = new System.Windows.Forms.Panel();
+            this.btnl_Ll2_Delete = new System.Windows.Forms.Button();
+            this.btn_Ll2_Idle = new System.Windows.Forms.Button();
+            this.btnl_Ll1_Delete = new System.Windows.Forms.Button();
+            this.btn_Ll1_Idle = new System.Windows.Forms.Button();
+            this.btnl_Pm4_End = new System.Windows.Forms.Button();
+            this.btnl_Pm3_End = new System.Windows.Forms.Button();
+            this.btnl_Pm2_End = new System.Windows.Forms.Button();
+            this.btnl_Pm1_End = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.gb_LowerFold.SuspendLayout();
             this.gb_Control.SuspendLayout();
+            this.pnl_MainPaint.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btn_Fold2);
             this.groupBox1.Controls.Add(this.btn_Unfold2);
-            this.groupBox1.Location = new System.Drawing.Point(708, 503);
+            this.groupBox1.Location = new System.Drawing.Point(708, 481);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(113, 83);
             this.groupBox1.TabIndex = 25;
@@ -91,7 +100,7 @@ namespace Winform_RobotArmUI_new
             // 
             this.gb_LowerFold.Controls.Add(this.btn_Fold);
             this.gb_LowerFold.Controls.Add(this.btn_Unfold);
-            this.gb_LowerFold.Location = new System.Drawing.Point(710, 414);
+            this.gb_LowerFold.Location = new System.Drawing.Point(710, 392);
             this.gb_LowerFold.Name = "gb_LowerFold";
             this.gb_LowerFold.Size = new System.Drawing.Size(113, 83);
             this.gb_LowerFold.TabIndex = 23;
@@ -136,6 +145,16 @@ namespace Winform_RobotArmUI_new
             this.gb_Control.TabIndex = 24;
             this.gb_Control.TabStop = false;
             this.gb_Control.Text = "Control_Lower";
+            // 
+            // btn_Load
+            // 
+            this.btn_Load.Location = new System.Drawing.Point(6, 194);
+            this.btn_Load.Name = "btn_Load";
+            this.btn_Load.Size = new System.Drawing.Size(101, 20);
+            this.btn_Load.TabIndex = 13;
+            this.btn_Load.Text = "Load";
+            this.btn_Load.UseVisualStyleBackColor = true;
+            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
             // 
             // btn_Pm1
             // 
@@ -197,21 +216,6 @@ namespace Winform_RobotArmUI_new
             this.btn_Pm4.UseVisualStyleBackColor = true;
             this.btn_Pm4.Click += new System.EventHandler(this.btn_Pm4_Click);
             // 
-            // pnl_MainPaint
-            // 
-            this.pnl_MainPaint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.pnl_MainPaint.BackgroundImage = global::Winform_RobotArmUI_new.Properties.Resources.MainPaint;
-            this.pnl_MainPaint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnl_MainPaint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_MainPaint.Location = new System.Drawing.Point(12, 12);
-            this.pnl_MainPaint.Name = "pnl_MainPaint";
-            this.pnl_MainPaint.Size = new System.Drawing.Size(690, 617);
-            this.pnl_MainPaint.TabIndex = 18;
-            this.pnl_MainPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_MainPaint_Paint);
-            this.pnl_MainPaint.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseClick);
-            this.pnl_MainPaint.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseDoubleClick);
-            this.pnl_MainPaint.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseMove);
-            // 
             // lbl_MiddelSpot
             // 
             this.lbl_MiddelSpot.AutoSize = true;
@@ -262,15 +266,107 @@ namespace Winform_RobotArmUI_new
             this.btn_MousePoint.UseVisualStyleBackColor = true;
             this.btn_MousePoint.Click += new System.EventHandler(this.btn_MousePoint_Click);
             // 
-            // btn_Load
+            // pnl_MainPaint
             // 
-            this.btn_Load.Location = new System.Drawing.Point(6, 194);
-            this.btn_Load.Name = "btn_Load";
-            this.btn_Load.Size = new System.Drawing.Size(101, 20);
-            this.btn_Load.TabIndex = 13;
-            this.btn_Load.Text = "Load";
-            this.btn_Load.UseVisualStyleBackColor = true;
-            this.btn_Load.Click += new System.EventHandler(this.btn_Load_Click);
+            this.pnl_MainPaint.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.pnl_MainPaint.BackgroundImage = global::Winform_RobotArmUI_new.Properties.Resources.MainPaint;
+            this.pnl_MainPaint.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnl_MainPaint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnl_MainPaint.Controls.Add(this.btnl_Ll2_Delete);
+            this.pnl_MainPaint.Controls.Add(this.btn_Ll2_Idle);
+            this.pnl_MainPaint.Controls.Add(this.btnl_Ll1_Delete);
+            this.pnl_MainPaint.Controls.Add(this.btn_Ll1_Idle);
+            this.pnl_MainPaint.Controls.Add(this.btnl_Pm4_End);
+            this.pnl_MainPaint.Controls.Add(this.btnl_Pm3_End);
+            this.pnl_MainPaint.Controls.Add(this.btnl_Pm2_End);
+            this.pnl_MainPaint.Controls.Add(this.btnl_Pm1_End);
+            this.pnl_MainPaint.Location = new System.Drawing.Point(10, 12);
+            this.pnl_MainPaint.Name = "pnl_MainPaint";
+            this.pnl_MainPaint.Size = new System.Drawing.Size(690, 617);
+            this.pnl_MainPaint.TabIndex = 18;
+            this.pnl_MainPaint.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_MainPaint_Paint);
+            this.pnl_MainPaint.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseClick);
+            this.pnl_MainPaint.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnl_MainPaint_MouseMove);
+            // 
+            // btnl_Ll2_Delete
+            // 
+            this.btnl_Ll2_Delete.Location = new System.Drawing.Point(427, 574);
+            this.btnl_Ll2_Delete.Name = "btnl_Ll2_Delete";
+            this.btnl_Ll2_Delete.Size = new System.Drawing.Size(56, 20);
+            this.btnl_Ll2_Delete.TabIndex = 30;
+            this.btnl_Ll2_Delete.Text = "Delete";
+            this.btnl_Ll2_Delete.UseVisualStyleBackColor = true;
+            this.btnl_Ll2_Delete.Click += new System.EventHandler(this.btnl_Ll2_Delete_Click);
+            // 
+            // btn_Ll2_Idle
+            // 
+            this.btn_Ll2_Idle.Location = new System.Drawing.Point(365, 574);
+            this.btn_Ll2_Idle.Name = "btn_Ll2_Idle";
+            this.btn_Ll2_Idle.Size = new System.Drawing.Size(56, 20);
+            this.btn_Ll2_Idle.TabIndex = 29;
+            this.btn_Ll2_Idle.Text = "Idle";
+            this.btn_Ll2_Idle.UseVisualStyleBackColor = true;
+            this.btn_Ll2_Idle.Click += new System.EventHandler(this.btn_Ll2_Idle_Click);
+            // 
+            // btnl_Ll1_Delete
+            // 
+            this.btnl_Ll1_Delete.Location = new System.Drawing.Point(265, 574);
+            this.btnl_Ll1_Delete.Name = "btnl_Ll1_Delete";
+            this.btnl_Ll1_Delete.Size = new System.Drawing.Size(56, 20);
+            this.btnl_Ll1_Delete.TabIndex = 27;
+            this.btnl_Ll1_Delete.Text = "Delete";
+            this.btnl_Ll1_Delete.UseVisualStyleBackColor = true;
+            this.btnl_Ll1_Delete.Click += new System.EventHandler(this.btnl_Ll1_Delete_Click);
+            // 
+            // btn_Ll1_Idle
+            // 
+            this.btn_Ll1_Idle.Location = new System.Drawing.Point(203, 574);
+            this.btn_Ll1_Idle.Name = "btn_Ll1_Idle";
+            this.btn_Ll1_Idle.Size = new System.Drawing.Size(56, 20);
+            this.btn_Ll1_Idle.TabIndex = 26;
+            this.btn_Ll1_Idle.Text = "Idle";
+            this.btn_Ll1_Idle.UseVisualStyleBackColor = true;
+            this.btn_Ll1_Idle.Click += new System.EventHandler(this.btn_Ll1_Idle_Click);
+            // 
+            // btnl_Pm4_End
+            // 
+            this.btnl_Pm4_End.Location = new System.Drawing.Point(576, 254);
+            this.btnl_Pm4_End.Name = "btnl_Pm4_End";
+            this.btnl_Pm4_End.Size = new System.Drawing.Size(56, 20);
+            this.btnl_Pm4_End.TabIndex = 24;
+            this.btnl_Pm4_End.Text = "End";
+            this.btnl_Pm4_End.UseVisualStyleBackColor = true;
+            this.btnl_Pm4_End.Click += new System.EventHandler(this.btnl_Pm4_End_Click);
+            // 
+            // btnl_Pm3_End
+            // 
+            this.btnl_Pm3_End.Location = new System.Drawing.Point(464, 57);
+            this.btnl_Pm3_End.Name = "btnl_Pm3_End";
+            this.btnl_Pm3_End.Size = new System.Drawing.Size(56, 20);
+            this.btnl_Pm3_End.TabIndex = 21;
+            this.btnl_Pm3_End.Text = "End";
+            this.btnl_Pm3_End.UseVisualStyleBackColor = true;
+            this.btnl_Pm3_End.Click += new System.EventHandler(this.btnl_Pm3_End_Click);
+            // 
+            // btnl_Pm2_End
+            // 
+            this.btnl_Pm2_End.Location = new System.Drawing.Point(172, 54);
+            this.btnl_Pm2_End.Name = "btnl_Pm2_End";
+            this.btnl_Pm2_End.Size = new System.Drawing.Size(56, 20);
+            this.btnl_Pm2_End.TabIndex = 18;
+            this.btnl_Pm2_End.Text = "End";
+            this.btnl_Pm2_End.UseVisualStyleBackColor = true;
+            this.btnl_Pm2_End.Click += new System.EventHandler(this.btnl_Pm2_End_Click);
+            // 
+            // btnl_Pm1_End
+            // 
+            this.btnl_Pm1_End.Location = new System.Drawing.Point(54, 254);
+            this.btnl_Pm1_End.Name = "btnl_Pm1_End";
+            this.btnl_Pm1_End.Size = new System.Drawing.Size(56, 20);
+            this.btnl_Pm1_End.TabIndex = 15;
+            this.btnl_Pm1_End.Text = "End";
+            this.btnl_Pm1_End.UseVisualStyleBackColor = true;
+            this.btnl_Pm1_End.Click += new System.EventHandler(this.btnl_Pm1_End_Click);
             // 
             // MainForm
             // 
@@ -292,6 +388,7 @@ namespace Winform_RobotArmUI_new
             this.groupBox1.ResumeLayout(false);
             this.gb_LowerFold.ResumeLayout(false);
             this.gb_Control.ResumeLayout(false);
+            this.pnl_MainPaint.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,6 +416,14 @@ namespace Winform_RobotArmUI_new
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_MousePoint;
         private System.Windows.Forms.Button btn_Load;
+        private System.Windows.Forms.Button btnl_Pm1_End;
+        private System.Windows.Forms.Button btnl_Ll2_Delete;
+        private System.Windows.Forms.Button btn_Ll2_Idle;
+        private System.Windows.Forms.Button btnl_Ll1_Delete;
+        private System.Windows.Forms.Button btn_Ll1_Idle;
+        private System.Windows.Forms.Button btnl_Pm4_End;
+        private System.Windows.Forms.Button btnl_Pm3_End;
+        private System.Windows.Forms.Button btnl_Pm2_End;
     }
 }
 

@@ -131,3 +131,5 @@ https://github.com/user-attachments/assets/e832996d-10b7-4f95-936d-1392eee2cf98
 
 https://github.com/user-attachments/assets/7bc8e8f8-fa09-487f-bf5e-9e5f1ec0d814
 
+### 6. 3축 로봇팔 + 웨이퍼 이동 구현
+- 3축 로봇팔 + 웨이퍼 이동 구현 성공 [_link](Resource.README/wafer%20이동%20구현.mp4)
