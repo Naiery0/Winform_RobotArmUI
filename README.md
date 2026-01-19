@@ -18,8 +18,8 @@ https://github.com/user-attachments/assets/23728311-8e1a-47cb-ad5a-050c92f57d9a
 
 - 로봇팔 이미지를 넣었더니 구겨지더라, 이미지를 가로로 잘 돌려 둔 이미지를 활용하자.
 
-    <img src="Resource.README/image01.png" width="250" height="200"/>
-    <img src="Resource.README/image02.png" width="250" height="200"/>
+    <img src="Resource.README/image01.png" width="200" height="200"/>
+    <img src="Resource.README/image02.png" width="200" height="200"/>
 
 - 기존 ctc 샘플 이미지 위에 올려두기 까지 구현
 [_link](./Resource.README/이미지%20로봇팔.mp4)
@@ -133,3 +133,8 @@ https://github.com/user-attachments/assets/7bc8e8f8-fa09-487f-bf5e-9e5f1ec0d814
 
 ### 6. 3축 로봇팔 + 웨이퍼 이동 구현
 - 3축 로봇팔 + 웨이퍼 이동 구현 성공 [_link](Resource.README/wafer%20이동%20구현.mp4)
+
+
+https://github.com/user-attachments/assets/a5a9d949-6727-43e0-ab31-2f797d1c5ed3
+
+
