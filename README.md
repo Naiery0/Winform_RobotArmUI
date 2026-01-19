@@ -19,6 +19,7 @@ https://github.com/user-attachments/assets/23728311-8e1a-47cb-ad5a-050c92f57d9a
 - 로봇팔 이미지를 넣었더니 구겨지더라, 이미지를 가로로 잘 돌려 둔 이미지를 활용하자.
 
     <img src="Resource.README/image01.png" width="200" height="200"/>
+    
     <img src="Resource.README/image02.png" width="200" height="200"/>
 
 - 기존 ctc 샘플 이미지 위에 올려두기 까지 구현
